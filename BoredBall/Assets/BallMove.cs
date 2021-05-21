@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +13,7 @@ public class BallMove : MonoBehaviour
     // Update is called once per frame
     void Start()
     {
+        Input.multiTouchEnabled=false;
         if (!PlayerPrefs.HasKey("firsttime"))
         {
             PlayerPrefs.SetInt("firsttime", 0);
@@ -29,7 +30,7 @@ public class BallMove : MonoBehaviour
         {
             tutorial.GetComponent<Text>().text = "TOUCH ANYWHERE TO MAKE THE BALL JUMP\n AND PASS IT THROUGH THE HOLE OF THE UPPER DISK";
             tutorial.SetActive(true);
-            if (Input.GetTouch(0).phase == TouchPhase.Began)
+            if ((Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began) )
             {
                 tutorial.SetActive(false);
                 firsttime = 0;
@@ -44,7 +45,7 @@ public class BallMove : MonoBehaviour
         transform.position = new Vector3(rad * cos, transform.position.y, rad * sin);
 
 
-        if (Input.touches[0].phase == TouchPhase.Began)
+        if ((Input.touchCount == 1 && Input.touches[0].phase == TouchPhase.Began) )
         {
             JumpButtonPress();
         }
