@@ -1,8 +1,6 @@
 # BoredBall-Unity-Project
 A casual game made with Unity.
 
-# Visual Demo
-
 ![](https://media.giphy.com/media/5hT4ySClgzgS9SKJRv/giphy.gif)
 
 # Description
